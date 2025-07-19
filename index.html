@@ -26,7 +26,7 @@
 
 
   <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="static/images/icon.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -36,12 +36,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
 </head>
 
 <body>
@@ -143,7 +145,23 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Streamlines are a fundamental representation in uncertainty-aware flow visualization, especially for analyzing complex transport phenomena in transitional flow regimes, enhancing researchers' ability to identify critical structures through Lagrangian coherence analysis. However, most existing studies focus on seed point optimization and static rendering, with limited attention to dynamic visualization or efficient methods for rendering dense animated streamlines. As a result, real-time animated streamline applications remain limited. To address the challenges of real-time visualizing complex flow fields and rendering large numbers of animated streamlines with scientifically meaningful motion interpretation, we propose a fast animated streamline visualization method based on a Motion Map framework. This method, based on spacetime parallelism, demonstrates how temporal domain analysis can independently capture the continuity of streamline spatial evolution. By using GPU parallel computing, our method enables real-time visualization of hundreds of millions of dynamic streamlets, accurately representing flow velocity and direction. It significantly outperforms static approaches by offering a richer, more informative representation of fluid dynamics across large-scale datasets. Furthermore, the method enhances understanding of transitional flow regimes through dynamic motion patterns, which can be tuned via multi-parameter controls to support uncertainty visualization. We also introduce a real-time interactive platform within an XR environment, providing an immersive and intuitive tool for exploring complex flow behaviors and gaining deeper insights into fluid dynamics.
+              Streamlines are a fundamental representation in uncertainty-aware flow visualization, especially for
+              analyzing complex transport phenomena in transitional flow regimes, enhancing researchers' ability to
+              identify critical structures through Lagrangian coherence analysis. However, most existing studies focus
+              on seed point optimization and static rendering, with limited attention to dynamic visualization or
+              efficient methods for rendering dense animated streamlines. As a result, real-time animated streamline
+              applications remain limited. To address the challenges of real-time visualizing complex flow fields and
+              rendering large numbers of animated streamlines with scientifically meaningful motion interpretation, we
+              propose a fast animated streamline visualization method based on a Motion Map framework. This method,
+              based on spacetime parallelism, demonstrates how temporal domain analysis can independently capture the
+              continuity of streamline spatial evolution. By using GPU parallel computing, our method enables real-time
+              visualization of hundreds of millions of dynamic streamlets, accurately representing flow velocity and
+              direction. It significantly outperforms static approaches by offering a richer, more informative
+              representation of fluid dynamics across large-scale datasets. Furthermore, the method enhances
+              understanding of transitional flow regimes through dynamic motion patterns, which can be tuned via
+              multi-parameter controls to support uncertainty visualization. We also introduce a real-time interactive
+              platform within an XR environment, providing an immersive and intuitive tool for exploring complex flow
+              behaviors and gaining deeper insights into fluid dynamics.
             </p>
           </div>
         </div>
@@ -151,7 +169,6 @@
     </div>
   </section>
   <!-- End paper abstract -->
-
 
   <!-- Image carousel -->
   <section class="hero is-small">
@@ -161,23 +178,48 @@
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item">
             <!-- Your image here -->
-            <img src="static/images/tupe1.jpg" alt="MY ALT TEXT"/>
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <img src="static/images/tupe1.jpg" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
             <h2 class="subtitle has-text-centered">
-              To present the fine structure within the vortex, we use fine lines instead of tubes, even allowing the vortex core to be observed. Although many existing methods of transparency blending and thickness for tube adjustment, the occlusion problem still persists.
+              To present the fine structure within the vortex, we use fine lines instead of tubes, even allowing the
+              vortex core to be observed. Although many existing methods of transparency blending and thickness for tube
+              adjustment, the occlusion problem still persists.
             </h2>
           </div>
           <div class="item">
             <!-- Your image here -->
-            <img src="static/images/tube2.png" alt="MY ALT TEXT" />
+            <div class="has-text-centered"
+              style="display: flex; align-items: flex-start; justify-content: center; min-height: 400px; padding-top: 50px; padding-left: 80px;">
+              <img src="static/images/image.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
             <h2 class="subtitle has-text-centered">
-              To demonstrate the trend of chaos, we use the method of animated streamlets. The left figure shows a large number of vortex phenomena in the local flow field, but cannot reveal their direction. The right side, however, reveals the direction of anisotropy and trends in the flow field.
+              Static streamlines comprising 100 million polylines lack directional information, preventing the
+              determination of flow trends.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <img src="static/images/tube2.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              To demonstrate the trend of chaos, we use the method of animated streamlets. The left figure shows a large
+              number of vortex phenomena in the local flow field, but cannot reveal their direction. The right side,
+              however, reveals the direction of anisotropy and trends in the flow field.
             </h2>
           </div>
           <div class="item item-video1">
-            <video poster="" id="video1" autoplay controls muted loop style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
-              <source src="static/videos/tube1.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">Dense streamlets animation enhances the perception of vortices and flow trends.</h2>
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <video poster="" id="video1" autoplay controls muted loop style="max-height: 600px; width: auto;">
+                <source src="static/videos/tube1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <h2 class="subtitle has-text-centered">Dense streamlets animation enhances the perception of vortices and
+              flow trends.</h2>
           </div>
         </div>
       </div>
@@ -185,10 +227,22 @@
   </section>
   <!-- End image carousel -->
 
-
-
-
-
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Accuracy of speed representation</h2>
+        <div class="has-text-centered">
+          <video poster="" id="video5" autoplay controls muted loop
+            style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
+            <source src="static/videos/tube3.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered mt-4">
+            Dense streamlets animation enhances the perception of vortices and flow trends.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Video carousel -->
   <section class="hero is-small temp-hidden">
@@ -197,15 +251,17 @@
         <h2 class="title is-3 has-text-centered">Another Carousel</h2>
         <div class="columns is-centered">
           <div class="column is-four-fifths">
-            <div id="results-carousel" class="carousel results-carousel">             
+            <div id="results-carousel" class="carousel results-carousel">
               <div class="item item-video2">
-                <video poster="" id="video2" autoplay controls muted loop style="display: block; margin: 0 auto; max-height: 500px; width: auto;">
+                <video poster="" id="video2" autoplay controls muted loop
+                  style="display: block; margin: 0 auto; max-height: 500px; width: auto;">
                   <!-- Your video file here -->
                   <source src="static/videos/carousel2.mp4" type="video/mp4">
                 </video>
               </div>
               <div class="item item-video3">
-                <video poster="" id="video3" autoplay controls muted loop style="display: block; margin: 0 auto; max-height: 500px; width: auto;">
+                <video poster="" id="video3" autoplay controls muted loop
+                  style="display: block; margin: 0 auto; max-height: 500px; width: auto;">
                   <!-- Your video file here -->
                   <source src="static/videos/carousel3.mp4" type="video/mp4">
                 </video>
@@ -219,21 +275,33 @@
   <!-- End video carousel -->
 
 
-  
+
   <!-- Youtube video -->
   <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="container">
         <!-- Paper video. -->
-        <h2 class="title is-3">Interactive platform</h2>
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-
+        <h2 class="title is-3">Interactive XR platform</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-video4">
             <div class="publication-video">
               <!-- Youtube embed code here -->
               <iframe src="https://www.youtube.com/embed/4hKeNXNyjKA" frameborder="0" allow="autoplay; encrypted-media"
                 allowfullscreen></iframe>
             </div>
+            <h2 class="subtitle has-text-centered">
+              360° view video with interactive presentation.
+            </h2>
+          </div>
+          <div class="item item-video5">
+            <div class="publication-video">
+              <!-- Youtube embed code here -->
+              <iframe src="https://www.youtube.com/embed/UMosUhgXG-o" frameborder="0" allow="autoplay; encrypted-media"
+                allowfullscreen></iframe>
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Comparison with other softwares.
+            </h2>
           </div>
         </div>
       </div>
@@ -241,13 +309,44 @@
   </section>
   <!-- End youtube video -->
 
-
-
-
-
+  <!-- Image carousel -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Other rendering features</h2>
+        <div id="results-carousel" class="carousel results-carousel" style="width: 90%; flex: none; margin: 0 auto">
+          <div class="item item-video1">
+            <video poster="" id="video1" autoplay controls muted loop
+              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
+              <source src="static/videos/AO.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Supports Specular, Ambient Occlusion (LineAO) and Bloom effects.</h2>
+          </div>
+          <div class="item item-video1">
+            <video poster="" id="video1" autoplay controls muted loop
+              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
+              <source src="static/videos/trans.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Supports mapping of different attributes (such as vorticity and
+              Q-criterion) to transparency to highlight vortex features.</h2>
+          </div>
+          <div class="item item-video1">
+            <video poster="" id="video1" autoplay controls muted loop
+              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
+              <source src="static/videos/tube4.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Supports accelerating CPU/GPU instancing for massive particles,
+              including Glyph-based and VFX particle methodologies, leveraging shearing transformations within encoded
+              Minkowski space.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End image carousel -->
 
   <!-- Paper poster -->
-  <section class="hero is-small is-light">
+  <section class="hero is-small is-light temp-hidden">
     <div class="hero-body">
       <div class="container">
         <h2 class="title">Poster</h2>
@@ -260,16 +359,147 @@
   </section>
   <!--End paper poster -->
 
+
+  <!-- Image carousel -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Dense fine streamlets animation</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered"
+              style="display: flex; align-items: flex-start; justify-content: center; min-height: 400px; padding-top: 50px; padding-left: 80px;">
+              <img src="static/images/fig5.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Generate intravascular flow lines, with seed points randomly distributed within the sphere (PointSource).
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <img src="static/images/fig6.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Generate intravascular flow lines, with seed points evenly distributed on a line segment (LineSource)
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <img src="static/images/fig7.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Accurate placement of PointSource through stereoscopic vision within narrow cerebral blood vessels
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <img src="static/images/fig8.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Dynamically adjust the streamline coloring effect to effectively detect anomalies
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <img src="static/images/fig9.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Using multi-level interaction of LineSource and PointSource, gradually seeding the area of interest
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <img src="static/images/fig10.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Adjust the shape and transparency of the animation flow line itself to solve the problem of self occlusion of the flow line
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <img src="static/images/fig11.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              3D animation display of urban sand table wind field
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <img src="static/images/fig12.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Streamline generation settings, default seed point examples, and canvas portals
+            </h2>
+            
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered"
+              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+              <img src="static/images/fig13.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Transmission scenario: One to one immersive experience wind field, supporting continuous streamline generation
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End image carousel -->
+
   <!--插入一个文件  -->
   <section class="hero is-small is-light">
     <div class="hero-body">
-      <div class="container">
-        <h2 class="title">File</h2>
+      <div class="download-card">
+        <img src="static/images/icon.png" alt="Icon" class="app-icon">
+        <div class="app-info">
+          <h2 class="app-name">APP</h2>
+          <div class="app-details">
+            version: v0.20 | update: 2025-01-19 | developer: Anonymous
+          </div>
+          <p></p>
+
+          <a href="https://drive.google.com/file/d/16MVvVSo5iqVRiCCLwZCKZq7_7DaVoi_S/view?usp=sharing" download="XResc-v0.20.apk" class="download-btn">
+            📱 Download APK
+          </a>
+
+          <div class="file-info">
+            <div class="file-detail">
+              <span class="file-detail-label">File size</span>
+              <span class="file-detail-value">215 MB</span>
+            </div>
+            <div class="file-detail">
+              <span class="file-detail-label">Download times</span>
+              <span class="file-detail-value">0</span>
+            </div>
+            <div class="file-detail">
+              <span class="file-detail-label">Compatibility</span>
+              <span class="file-detail-value">Quest 3/ Quest 3s</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
   <!--BibTex citation -->
-  <section class="section" id="BibTeX">
+  <section class="section temp-hidden" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>BibTex Code Here</code></pre>
@@ -277,23 +507,21 @@
   </section>
   <!--End BibTex citation -->
 
-
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-8">
           <div class="content">
-
             <p>
               This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
                 target="_blank">Academic Project Page Template</a> which was adopted from the <a
                 href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-              You are free to borrow the source code of this website, we just ask that you link back to this page in the
+              You are free to borrow the source code of this website, we just ask that you link back to this page in
+              the
               footer. <br> This website is licensed under a <a rel="license"
                 href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
                 Commons Attribution-ShareAlike 4.0 International License</a>.
             </p>
-
           </div>
         </div>
       </div>

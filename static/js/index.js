@@ -11,11 +11,14 @@ $(document).ready(function() {
 			infinite: true,
 			autoplay: true,
 			autoplaySpeed: 5000,
+			pauseOnHover: true
     }
 
 		// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
-	
+
     bulmaSlider.attach();
 
 })
+
+

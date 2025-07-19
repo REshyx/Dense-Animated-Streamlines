@@ -139,3 +139,108 @@ body {
 }
 
 
+.download-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.download-card {
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.download-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.app-icon {
+  width: 64px;
+  height: 64px;
+  float: left;
+  margin-right: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.app-info {
+  overflow: hidden;
+}
+
+.app-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+}
+
+.app-details {
+  color: #6c757d;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.download-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
+
+.file-info {
+  display: flex;
+  gap: 20px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #dee2e6;
+}
+
+.file-detail {
+  text-align: center;
+}
+
+.file-detail-label {
+  font-size: 12px;
+  color: #6c757d;
+  display: block;
+}
+
+.file-detail-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.security-note {
+  background: #d1ecf1;
+  color: #0c5460;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-size: 14px;
+  border-left: 4px solid #17a2b8;
+}
