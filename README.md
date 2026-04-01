@@ -2,6 +2,8 @@
 This is an academic paper project page template.
 
 
+https://reshyx.github.io/Dense-Animated-Streamlines/
+
 Example project pages built using this template are:
 - https://horwitz.ai/probex
 - https://vision.huji.ac.il/probegen
