@@ -130,13 +130,32 @@
   </section>
 
 
-  <!-- Teaser video-->
+  <!-- Teaser: two clips played back-to-back as one sequence -->
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <video poster="" id="teaser" autoplay controls muted loop style="width: 100%; height: auto;">
-          <source src="static/videos/Teaser-200M_all.mp4" type="video/mp4">
-        </video>
+        <div class="teaser-with-nav">
+          <div class="teaser-video-chain">
+            <video poster="" id="teaser-p1" class="teaser-seq" autoplay controls muted playsinline preload="auto">
+              <source src="static/videos/Teaser-200M-p1.mp4" type="video/mp4">
+            </video>
+            <video poster="" id="teaser-p2" class="teaser-seq is-inactive" controls muted playsinline preload="auto">
+              <source src="static/videos/Teaser-200M_p2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <button type="button" class="slider-navigation-previous" id="teaser-prev" aria-label="Previous teaser clip">
+            <svg viewBox="0 0 50 80" xml:space="preserve" aria-hidden="true">
+              <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round"
+                points="45.63,75.8 0.375,38.087 45.63,0.375 " />
+            </svg>
+          </button>
+          <button type="button" class="slider-navigation-next" id="teaser-next" aria-label="Next teaser clip">
+            <svg viewBox="0 0 50 80" xml:space="preserve" aria-hidden="true">
+              <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round"
+                points="0.375,0.375 45.63,38.087 0.375,75.8 " />
+            </svg>
+          </button>
+        </div>
         <h2 class="subtitle has-text-centered">
 
         </h2>
@@ -166,6 +185,122 @@
     </div>
   </section>
   <!-- End paper abstract -->
+
+
+    <!-- Image carousel -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3 has-text-centered">Multi-level parallelism for immersive flow exploration:<br>Interactive seeding (CPU) and animation rendering (GPU)</h2>
+          <div id="results-carousel" class="carousel results-carousel carousel-parallelism">
+            <div class="item">
+              <!-- Your image here -->
+              <div class="has-text-centered"
+                style="display: flex; align-items: flex-start; justify-content: center; min-height: 400px; padding-top: 50px; padding-left: 80px;">
+                <img src="static/images/fig5.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered">
+                Generate intravascular flow lines, with seed points randomly distributed within the sphere (PointSource).
+              </h2>
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <div class="has-text-centered"
+                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                <img src="static/images/fig6.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered">
+                Generate intravascular flow lines, with seed points evenly distributed on a line segment (LineSource)
+              </h2>
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <div class="has-text-centered"
+                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                <img src="static/images/fig7.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered">
+                Accurate placement of PointSource through stereoscopic vision within narrow cerebral blood vessels
+              </h2>
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <div class="has-text-centered"
+                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                <img src="static/images/fig8.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered">
+                Dynamically adjust the streamline coloring effect to effectively detect anomalies
+              </h2>
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <div class="has-text-centered"
+                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                <img src="static/images/fig9.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered">
+                Using multi-level interaction of LineSource and PointSource, gradually seeding the area of interest
+              </h2>
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <div class="has-text-centered"
+                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                <img src="static/images/fig10.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered">
+                Adjust the shape and transparency of the animation flow line itself to solve the problem of self occlusion of the flow line
+              </h2>
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <div class="has-text-centered"
+                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                <img src="static/images/fig11.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered">
+                3D animation display of urban sand table wind field
+              </h2>
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <div class="has-text-centered"
+                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                <img src="static/images/fig12.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered">
+                Streamline generation settings, default seed point examples, and canvas portals
+              </h2>
+              
+            </div>
+            <div class="item">
+              <!-- Your image here -->
+              <div class="has-text-centered"
+                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                <img src="static/images/fig13.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+              </div>
+              <h2 class="subtitle has-text-centered">
+                Transmission scenario: One to one immersive experience wind field, supporting continuous streamline generation
+              </h2>
+            </div>
+            <div class="item">
+              <div class="has-text-centered"
+                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+                <video poster="" id="video-amdxcopy" class="carousel-parallelism-defer-video" autoplay controls muted playsinline
+                  style="max-height: 600px; width: auto;">
+                  <source src="static/videos/amdxcopy.mp4" type="video/mp4">
+                </video>
+              </div>
+              <h2 class="subtitle has-text-centered">
+                Animated Streamlines Based Flow Analysis
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End image carousel -->
 
   <!-- Image carousel -->
   <section class="hero is-small">
@@ -228,47 +363,76 @@
 
     <div class="hero-body">
       <div class="container">
-        <h2 class="title is-3 has-text-centered">Accuracy of speed representation for adaptive RK methods</h2>
-        <div class="container" style="width: 70%; margin: 0 auto;">
-          <div class="columns is-centered">
-            <div class="column is-8">
-              <div class="item">
-                <!-- Your image here -->
-                <div class="has-text-centered"
-                  style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                  <img src="static/images/f7.png" alt="MY ALT TEXT" />
-                </div>
-                <h2 class="subtitle has-text-centered">
-                  Large step size fail to converge near vortices to form vortex cores, while small step sizes generate excessive primitives that sharply increase rendering load.
-                </h2>
+        <div class="accuracy-rk-block">
+          <h2 class="title is-3 has-text-centered">Accuracy of speed representation for adaptive RK methods</h2>
+        </div>
+        <div class="accuracy-rk-pair">
+          <div class="accuracy-rk-row">
+            <div class="accuracy-rk-fig">
+              <div class="accuracy-rk-media has-text-centered">
+                <img src="static/images/f6.png" alt="MY ALT TEXT" />
               </div>
+              <h2 class="subtitle has-text-centered">
+                Large step size fail to converge near vortices to form vortex cores, while small step sizes generate excessive primitives that sharply increase rendering load.
+              </h2>
             </div>
-            <div class="column is-8">
-              <div class="item">
-                <!-- Your image here -->
-                <div class="has-text-centered"
-                  style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                  <img src="static/images/f6.png" alt="MY ALT TEXT"/>
-                </div>
-                <h2 class="subtitle has-text-centered">
-                  Adaptive step size integration can automatically adjust step size based on truncation error, achieving both more accurate streamlines and reduced primitive count.
-                </h2>
+            <div class="accuracy-rk-fig">
+              <div class="accuracy-rk-media has-text-centered">
+                <img src="static/images/f7.png" alt="MY ALT TEXT" />
               </div>
+              <h2 class="subtitle has-text-centered">
+                Adaptive step size integration can automatically adjust step size based on truncation error, achieving both more accurate streamlines and reduced primitive count.
+              </h2>
             </div>
           </div>
         </div>
         <div class="has-text-centered">
           <video poster="" id="video5" autoplay controls muted loop
             style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
-            <source src="static/videos/tube3.mp4" type="video/mp4">
+            <source src="static/videos/Fidelity.mp4" type="video/mp4">
           </video>
           <h2 class="subtitle has-text-centered mt-4">
             Dense streamlets animation enhances the perception of vortices and flow trends.
           </h2>
         </div>
+        <div class="has-text-centered">
+          <video poster="" id="videoUncertaintyContrast" autoplay controls muted loop
+            style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
+            <source src="static/videos/uncertaintyContrast_page.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered mt-4">
+            Different variable mappings and the uncertainty they introduce.
+          </h2>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Liver & Red Sea video carousel -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Liver and Red Sea flow visualization</h2>
+        <div id="liver-redsea-carousel" class="carousel results-carousel" style="width: 90%; flex: none; margin: 0 auto;">
+          <div class="item">
+            <video poster="" id="video-liver-glyph" autoplay controls muted loop playsinline preload="metadata"
+              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
+              <source src="static/videos/liverGlphy.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Liver hemodynamics with glyph-based animated streamlines.</h2>
+          </div>
+          <div class="item">
+            <video poster="" id="video-red-sea" autoplay controls muted loop playsinline preload="metadata"
+              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
+              <source src="static/videos/redSea.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Large-scale Red Sea ocean current field.</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End liver & Red Sea carousel -->
 
   <!-- Video carousel -->
   <section class="hero is-small temp-hidden">
@@ -390,108 +554,7 @@
   <!--End paper poster -->
 
 
-  <!-- Image carousel -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3 has-text-centered">Interactive seeding and animation adjustment for uncertainty-awareness</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: flex-start; justify-content: center; min-height: 400px; padding-top: 50px; padding-left: 80px;">
-              <img src="static/images/fig5.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-            </div>
-            <h2 class="subtitle has-text-centered">
-              Generate intravascular flow lines, with seed points randomly distributed within the sphere (PointSource).
-            </h2>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-              <img src="static/images/fig6.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-            </div>
-            <h2 class="subtitle has-text-centered">
-              Generate intravascular flow lines, with seed points evenly distributed on a line segment (LineSource)
-            </h2>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-              <img src="static/images/fig7.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-            </div>
-            <h2 class="subtitle has-text-centered">
-              Accurate placement of PointSource through stereoscopic vision within narrow cerebral blood vessels
-            </h2>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-              <img src="static/images/fig8.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-            </div>
-            <h2 class="subtitle has-text-centered">
-              Dynamically adjust the streamline coloring effect to effectively detect anomalies
-            </h2>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-              <img src="static/images/fig9.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-            </div>
-            <h2 class="subtitle has-text-centered">
-              Using multi-level interaction of LineSource and PointSource, gradually seeding the area of interest
-            </h2>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-              <img src="static/images/fig10.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-            </div>
-            <h2 class="subtitle has-text-centered">
-              Adjust the shape and transparency of the animation flow line itself to solve the problem of self occlusion of the flow line
-            </h2>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-              <img src="static/images/fig11.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-            </div>
-            <h2 class="subtitle has-text-centered">
-              3D animation display of urban sand table wind field
-            </h2>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-              <img src="static/images/fig12.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-            </div>
-            <h2 class="subtitle has-text-centered">
-              Streamline generation settings, default seed point examples, and canvas portals
-            </h2>
-            
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-              <img src="static/images/fig13.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-            </div>
-            <h2 class="subtitle has-text-centered">
-              Transmission scenario: One to one immersive experience wind field, supporting continuous streamline generation
-            </h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End image carousel -->
+
 
   <!--插入一个文件  -->
   <section class="hero is-small is-light">

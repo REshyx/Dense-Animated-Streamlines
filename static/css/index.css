@@ -110,6 +110,45 @@ body {
 .publication-body img {
 }
 
+.teaser-with-nav {
+  position: relative;
+  width: 100%;
+}
+
+/* Match Bulma Carousel nav buttons (slider-navigation-*) but use real <button> for accessibility */
+.teaser-with-nav button.slider-navigation-previous,
+.teaser-with-nav button.slider-navigation-next {
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  color: #363636;
+  z-index: 2;
+}
+
+.teaser-with-nav .slider-navigation-previous {
+  left: 0.75rem;
+}
+
+.teaser-with-nav .slider-navigation-next {
+  right: 0.75rem;
+}
+
+.teaser-video-chain {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.teaser-video-chain .teaser-seq {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.teaser-video-chain .teaser-seq.is-inactive {
+  display: none;
+}
+
 .results-carousel {
   overflow: hidden;
 }
@@ -123,6 +162,39 @@ body {
 
 .results-carousel video {
   margin: 0;
+}
+
+/* Multi-level parallelism carousel: stable swipe area; short media vertically centered */
+.carousel-parallelism {
+  --parallelism-media-h: 600px;
+}
+
+.carousel-parallelism .slider-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-parallelism .slider-item > .item {
+  width: 100%;
+}
+
+.carousel-parallelism .slider-item > .item > div:first-of-type {
+  height: var(--parallelism-media-h);
+  min-height: var(--parallelism-media-h);
+  max-height: var(--parallelism-media-h);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box;
+  padding: 0 !important;
+}
+
+.carousel-parallelism .slider-item > .item > div:first-of-type img,
+.carousel-parallelism .slider-item > .item > div:first-of-type video {
+  max-height: 100%;
+  width: auto;
+  height: auto;
 }
 
 .slider-pagination .slider-page {
@@ -243,4 +315,62 @@ body {
   margin-top: 20px;
   font-size: 14px;
   border-left: 4px solid #17a2b8;
+}
+
+/* f6/f7: tight vertical rhythm, wide row, minimal gutter */
+.accuracy-rk-block > .title.is-3 {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Inside Bulma .container: full width of container, no breakout */
+.accuracy-rk-pair {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+.accuracy-rk-pair .accuracy-rk-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: 0;
+  row-gap: 0.5rem;
+}
+
+.accuracy-rk-pair .accuracy-rk-fig {
+  flex: 1 1 50%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.accuracy-rk-pair .accuracy-rk-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.accuracy-rk-pair .accuracy-rk-fig img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.accuracy-rk-pair .subtitle {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+}
+
+.accuracy-rk-block {
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .accuracy-rk-pair .accuracy-rk-fig {
+    flex: 1 1 100%;
+  }
 }
