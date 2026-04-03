@@ -1,0 +1,45 @@
+# GitHub Pages serves LFS-tracked files as tiny pointer blobs when using
+# "Deploy from a branch". This workflow checks out with Git LFS so static
+# assets (e.g. Teaser-200M.mp4) are real files in the uploaded artifact.
+#
+# After merging: Repo Settings → Pages → Build and deployment → Source:
+# select "GitHub Actions" (not "Deploy from a branch").
+
+name: Deploy Pages
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Strip git metadata from upload
+        run: rm -rf .git
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - uses: actions/deploy-pages@v4
+        id: deployment
