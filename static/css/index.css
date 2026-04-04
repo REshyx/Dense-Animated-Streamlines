@@ -375,6 +375,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
+  margin-bottom: 2.5rem;
   box-sizing: border-box;
 }
 
@@ -384,7 +385,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   column-gap: 0;
-  row-gap: 0.5rem;
+  row-gap: 1.5rem;
 }
 
 .accuracy-rk-pair .accuracy-rk-fig {
@@ -408,8 +409,12 @@ body {
 }
 
 .accuracy-rk-pair .subtitle {
-  margin-top: 0.5rem !important;
+  margin-top: 0.75rem !important;
   margin-bottom: 0 !important;
+}
+
+.accuracy-rk-section > .has-text-centered + .has-text-centered {
+  margin-top: 2.75rem;
 }
 
 .accuracy-rk-block {
