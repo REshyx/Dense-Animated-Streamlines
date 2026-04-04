@@ -132,14 +132,38 @@ body {
   width: 100%;
 }
 
-/* Match Bulma Carousel nav buttons (slider-navigation-*) but use real <button> for accessibility */
 .teaser-with-nav button.slider-navigation-previous,
 .teaser-with-nav button.slider-navigation-next {
   appearance: none;
   -webkit-appearance: none;
   font: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(50,50,50,.1);
+  top: 50%;
+  margin-top: -21px;
+  cursor: pointer;
+  transition: transform .3s, opacity .3s;
   color: #363636;
   z-index: 2;
+  padding: 0;
+}
+
+.teaser-with-nav button.slider-navigation-previous:hover,
+.teaser-with-nav button.slider-navigation-next:hover {
+  transform: scale(1.2);
+}
+
+.teaser-with-nav button.slider-navigation-previous svg,
+.teaser-with-nav button.slider-navigation-next svg {
+  width: 25%;
 }
 
 .teaser-with-nav .slider-navigation-previous {
@@ -166,57 +190,6 @@ body {
   display: none;
 }
 
-.results-carousel {
-  overflow: hidden;
-}
-
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  padding: 20px;
-  font-size: 0;
-}
-
-.results-carousel video {
-  margin: 0;
-}
-
-/* Multi-level parallelism carousel: stable swipe area; short media vertically centered */
-.carousel-parallelism {
-  --parallelism-media-h: 600px;
-}
-
-.carousel-parallelism .slider-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-parallelism .slider-item > .item {
-  width: 100%;
-}
-
-.carousel-parallelism .slider-item > .item > div:first-of-type {
-  height: var(--parallelism-media-h);
-  min-height: var(--parallelism-media-h);
-  max-height: var(--parallelism-media-h);
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  box-sizing: border-box;
-  padding: 0 !important;
-}
-
-.carousel-parallelism .slider-item > .item > div:first-of-type img,
-.carousel-parallelism .slider-item > .item > div:first-of-type video {
-  max-height: 100%;
-  width: auto;
-  height: auto;
-}
-
-.slider-pagination .slider-page {
-  background: #000000;
-}
 
 .eql-cntrb { 
   font-size: smaller;
@@ -447,5 +420,135 @@ body {
 @media screen and (max-width: 768px) {
   .accuracy-rk-pair .accuracy-rk-fig {
     flex: 1 1 100%;
+  }
+}
+
+/* ── Manual carousel (.mc-*) ── */
+.manual-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.mc-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.mc-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.mc-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  font-size: initial;
+}
+
+.manual-carousel {
+  --mc-media-h: 600px;
+}
+
+.manual-carousel .mc-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manual-carousel .mc-slide > div:first-of-type {
+  width: 100%;
+  height: var(--mc-media-h);
+  min-height: var(--mc-media-h);
+  max-height: var(--mc-media-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.manual-carousel .mc-slide > div:first-of-type img,
+.manual-carousel .mc-slide > div:first-of-type video {
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.manual-carousel .mc-slide .subtitle {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.mc-prev,
+.mc-next {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(50,50,50,.1);
+  top: 50%;
+  margin-top: -21px;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform .3s, opacity .3s;
+  color: #363636;
+  padding: 0;
+}
+
+.mc-prev { left: 0; }
+.mc-next { right: 0; }
+
+.mc-prev:hover,
+.mc-next:hover {
+  transform: scale(1.2);
+}
+
+.mc-prev svg,
+.mc-next svg {
+  width: 25%;
+}
+
+.mc-dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.mc-dot {
+  background: #000;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 3px;
+  box-shadow: 0 2px 5px rgba(50,50,50,.1);
+  cursor: pointer;
+  transition: transform .3s;
+  opacity: 0.35;
+}
+
+.mc-dot.is-active {
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+@media screen and (min-width: 800px) {
+  .mc-dots {
+    display: flex;
   }
 }

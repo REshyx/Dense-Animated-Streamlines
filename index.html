@@ -30,8 +30,6 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
@@ -40,9 +38,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+  <script src="static/js/index.js?v=3"></script>
 
 </head>
 
@@ -200,173 +196,123 @@
   <!-- End paper abstract -->
 
 
-    <!-- Image carousel -->
+    <!-- Parallelism carousel -->
     <section class="hero is-small">
       <div class="hero-body">
         <div class="container">
           <h2 class="title is-3 has-text-centered">Multi-Level Parallelism for Immersive Flow Exploration:<br>Interactive Seeding (CPU) and Animation Rendering (GPU)</h2>
-          <div id="results-carousel" class="carousel results-carousel carousel-parallelism">
-            <div class="item">
-              <!-- Your image here -->
-              <div class="has-text-centered"
-                style="display: flex; align-items: flex-start; justify-content: center; min-height: 400px; padding-top: 50px; padding-left: 80px;">
-                <img src="static/images/fig5.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+          <div id="parallelism-carousel" class="manual-carousel">
+            <div class="mc-viewport">
+              <div class="mc-track">
+                <div class="mc-slide">
+                  <div class="has-text-centered">
+                    <img src="static/images/fig5.png" alt="" />
+                  </div>
+                  <h2 class="subtitle has-text-centered">Generate intravascular flow lines, with seed points randomly distributed within the sphere (PointSource).</h2>
+                </div>
+                <div class="mc-slide">
+                  <div class="has-text-centered">
+                    <img src="static/images/fig6.png" alt="" />
+                  </div>
+                  <h2 class="subtitle has-text-centered">Generate intravascular flow lines, with seed points evenly distributed on a line segment (LineSource)</h2>
+                </div>
+                <div class="mc-slide">
+                  <div class="has-text-centered">
+                    <img src="static/images/fig7.png" alt="" />
+                  </div>
+                  <h2 class="subtitle has-text-centered">Accurate placement of PointSource through stereoscopic vision within narrow cerebral blood vessels</h2>
+                </div>
+                <div class="mc-slide">
+                  <div class="has-text-centered">
+                    <img src="static/images/fig8.png" alt="" />
+                  </div>
+                  <h2 class="subtitle has-text-centered">Dynamically adjust the streamline coloring effect to effectively detect anomalies</h2>
+                </div>
+                <div class="mc-slide">
+                  <div class="has-text-centered">
+                    <img src="static/images/fig9.png" alt="" />
+                  </div>
+                  <h2 class="subtitle has-text-centered">Using multi-level interaction of LineSource and PointSource, gradually seeding the area of interest</h2>
+                </div>
+                <div class="mc-slide">
+                  <div class="has-text-centered">
+                    <img src="static/images/fig10.png" alt="" />
+                  </div>
+                  <h2 class="subtitle has-text-centered">Adjust the shape and transparency of the animation flow line itself to solve the problem of self occlusion of the flow line</h2>
+                </div>
+                <div class="mc-slide">
+                  <div class="has-text-centered">
+                    <img src="static/images/fig11.png" alt="" />
+                  </div>
+                  <h2 class="subtitle has-text-centered">3D animation display of urban sand table wind field</h2>
+                </div>
+                <div class="mc-slide">
+                  <div class="has-text-centered">
+                    <img src="static/images/fig12.png" alt="" />
+                  </div>
+                  <h2 class="subtitle has-text-centered">Streamline generation settings, default seed point examples, and canvas portals</h2>
+                </div>
+                <div class="mc-slide">
+                  <div class="has-text-centered">
+                    <img src="static/images/fig13.png" alt="" />
+                  </div>
+                  <h2 class="subtitle has-text-centered">Transmission scenario: One to one immersive experience wind field, supporting continuous streamline generation</h2>
+                </div>
+                <div class="mc-slide">
+                  <div class="has-text-centered">
+                    <video poster="" id="video-amdxcopy" autoplay controls muted playsinline>
+                      <source src="static/videos/amdxcopy.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <h2 class="subtitle has-text-centered">Animated Streamlines Based Flow Analysis</h2>
+                </div>
               </div>
-              <h2 class="subtitle has-text-centered">
-                Generate intravascular flow lines, with seed points randomly distributed within the sphere (PointSource).
-              </h2>
             </div>
-            <div class="item">
-              <!-- Your image here -->
-              <div class="has-text-centered"
-                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                <img src="static/images/fig6.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-              </div>
-              <h2 class="subtitle has-text-centered">
-                Generate intravascular flow lines, with seed points evenly distributed on a line segment (LineSource)
-              </h2>
-            </div>
-            <div class="item">
-              <!-- Your image here -->
-              <div class="has-text-centered"
-                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                <img src="static/images/fig7.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-              </div>
-              <h2 class="subtitle has-text-centered">
-                Accurate placement of PointSource through stereoscopic vision within narrow cerebral blood vessels
-              </h2>
-            </div>
-            <div class="item">
-              <!-- Your image here -->
-              <div class="has-text-centered"
-                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                <img src="static/images/fig8.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-              </div>
-              <h2 class="subtitle has-text-centered">
-                Dynamically adjust the streamline coloring effect to effectively detect anomalies
-              </h2>
-            </div>
-            <div class="item">
-              <!-- Your image here -->
-              <div class="has-text-centered"
-                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                <img src="static/images/fig9.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-              </div>
-              <h2 class="subtitle has-text-centered">
-                Using multi-level interaction of LineSource and PointSource, gradually seeding the area of interest
-              </h2>
-            </div>
-            <div class="item">
-              <!-- Your image here -->
-              <div class="has-text-centered"
-                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                <img src="static/images/fig10.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-              </div>
-              <h2 class="subtitle has-text-centered">
-                Adjust the shape and transparency of the animation flow line itself to solve the problem of self occlusion of the flow line
-              </h2>
-            </div>
-            <div class="item">
-              <!-- Your image here -->
-              <div class="has-text-centered"
-                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                <img src="static/images/fig11.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-              </div>
-              <h2 class="subtitle has-text-centered">
-                3D animation display of urban sand table wind field
-              </h2>
-            </div>
-            <div class="item">
-              <!-- Your image here -->
-              <div class="has-text-centered"
-                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                <img src="static/images/fig12.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-              </div>
-              <h2 class="subtitle has-text-centered">
-                Streamline generation settings, default seed point examples, and canvas portals
-              </h2>
-              
-            </div>
-            <div class="item">
-              <!-- Your image here -->
-              <div class="has-text-centered"
-                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                <img src="static/images/fig13.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
-              </div>
-              <h2 class="subtitle has-text-centered">
-                Transmission scenario: One to one immersive experience wind field, supporting continuous streamline generation
-              </h2>
-            </div>
-            <div class="item">
-              <div class="has-text-centered"
-                style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                <video poster="" id="video-amdxcopy" class="carousel-parallelism-defer-video" autoplay controls muted playsinline
-                  style="max-height: 600px; width: auto;">
-                  <source src="static/videos/amdxcopy.mp4" type="video/mp4">
-                </video>
-              </div>
-              <h2 class="subtitle has-text-centered">
-                Animated Streamlines Based Flow Analysis
-              </h2>
-            </div>
+            <button type="button" class="mc-prev" aria-label="Previous">
+              <svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375"/></svg>
+            </button>
+            <button type="button" class="mc-next" aria-label="Next">
+              <svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8"/></svg>
+            </button>
+            <div class="mc-dots"></div>
           </div>
         </div>
       </div>
     </section>
-    <!-- End image carousel -->
+    <!-- End parallelism carousel -->
 
-  <!-- Image carousel -->
+  <!-- Streamlets carousel -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3 has-text-centered">Dense Fine Streamlets Animation</h2>
-        <div id="results-carousel" class="carousel results-carousel carousel-parallelism">
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered">
-              <img src="static/images/tupe1.jpg" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+        <div id="streamlets-carousel" class="manual-carousel">
+          <div class="mc-viewport"><div class="mc-track">
+            <div class="mc-slide">
+              <div class="has-text-centered"><img src="static/images/tupe1.jpg" alt="" /></div>
+              <h2 class="subtitle has-text-centered">To present the fine structure within the vortex, we use fine lines instead of tubes, even allowing the vortex core to be observed. Although many existing methods of transparency blending and thickness for tube adjustment, the occlusion problem still persists.</h2>
             </div>
-            <h2 class="subtitle has-text-centered">
-              To present the fine structure within the vortex, we use fine lines instead of tubes, even allowing the
-              vortex core to be observed. Although many existing methods of transparency blending and thickness for tube
-              adjustment, the occlusion problem still persists.
-            </h2>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered">
-              <img src="static/images/image.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            <div class="mc-slide">
+              <div class="has-text-centered"><img src="static/images/image.png" alt="" /></div>
+              <h2 class="subtitle has-text-centered">Static streamlines comprising 100 million polylines lack directional information, preventing the determination of flow trends.</h2>
             </div>
-            <h2 class="subtitle has-text-centered">
-              Static streamlines comprising 100 million polylines lack directional information, preventing the
-              determination of flow trends.
-            </h2>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <div class="has-text-centered">
-              <img src="static/images/tube2.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
+            <div class="mc-slide">
+              <div class="has-text-centered"><img src="static/images/tube2.png" alt="" /></div>
+              <h2 class="subtitle has-text-centered">To demonstrate the trend of chaos, we use the method of animated streamlets. The left figure shows a large number of vortex phenomena in the local flow field, but cannot reveal their direction. The right side, however, reveals the direction of anisotropy and trends in the flow field.</h2>
             </div>
-            <h2 class="subtitle has-text-centered">
-              To demonstrate the trend of chaos, we use the method of animated streamlets. The left figure shows a large
-              number of vortex phenomena in the local flow field, but cannot reveal their direction. The right side,
-              however, reveals the direction of anisotropy and trends in the flow field.
-            </h2>
-          </div>
-          <div class="item item-video1">
-            <div class="has-text-centered">
-              <video poster="" id="video1" autoplay controls muted loop style="max-height: 600px; width: auto;">
-                <source src="static/videos/tube1.mp4" type="video/mp4">
-              </video>
+            <div class="mc-slide">
+              <div class="has-text-centered"><video poster="" autoplay controls muted playsinline><source src="static/videos/tube1.mp4" type="video/mp4"></video></div>
+              <h2 class="subtitle has-text-centered">Dense streamlets animation enhances the awareness of vortices and flow trends.</h2>
             </div>
-            <h2 class="subtitle has-text-centered">Dense streamlets animation enhances the awareness of vortices and
-              flow trends.</h2>
-          </div>
+          </div></div>
+          <button type="button" class="mc-prev" aria-label="Previous"><svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375"/></svg></button>
+          <button type="button" class="mc-next" aria-label="Next"><svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8"/></svg></button>
+          <div class="mc-dots"></div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End image carousel -->
+  <!-- End streamlets carousel -->
 
   <section class="hero is-small">
 
@@ -417,35 +363,29 @@
     </div>
   </section>
 
-  <!-- Apparent motion / Eulerian animation carousel (liver, Red Sea, cone instancing) -->
+  <!-- Apparent motion / Eulerian animation carousel -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3 has-text-centered">Apparent Motion and Eulerian Animation</h2>
-        <div id="liver-redsea-carousel" class="carousel results-carousel" style="width: 90%; flex: none; margin: 0 auto;">
-          <div class="item">
-            <video poster="" id="video-liver-glyph" autoplay controls muted loop playsinline preload="metadata"
-              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
-              <source src="static/videos/liverGlphy.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">Liver hemodynamics with glyph-based animated streamlines.</h2>
-          </div>
-          <div class="item">
-            <video poster="" id="video-red-sea" autoplay controls muted loop playsinline preload="metadata"
-              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
-              <source src="static/videos/redSea.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">Large-scale Red Sea ocean current field.</h2>
-          </div>
-          <div class="item">
-            <video poster="" id="video-euler-cone" autoplay controls muted loop playsinline preload="metadata"
-              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
-              <source src="static/videos/coneAnim.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">Supports accelerating CPU/GPU instancing for massive particles,
-              including Glyph-based and VFX particle methodologies, leveraging shearing transformations within encoded
-              Minkowski space.</h2>
-          </div>
+        <div id="liver-redsea-carousel" class="manual-carousel" style="width: 90%; margin: 0 auto;">
+          <div class="mc-viewport"><div class="mc-track">
+            <div class="mc-slide">
+              <div class="has-text-centered"><video poster="" autoplay controls muted playsinline preload="metadata"><source src="static/videos/liverGlphy.mp4" type="video/mp4"></video></div>
+              <h2 class="subtitle has-text-centered">Liver hemodynamics with glyph-based animated streamlines.</h2>
+            </div>
+            <div class="mc-slide">
+              <div class="has-text-centered"><video poster="" autoplay controls muted playsinline preload="metadata"><source src="static/videos/redSea.mp4" type="video/mp4"></video></div>
+              <h2 class="subtitle has-text-centered">Large-scale Red Sea ocean current field.</h2>
+            </div>
+            <div class="mc-slide">
+              <div class="has-text-centered"><video poster="" autoplay controls muted playsinline preload="metadata"><source src="static/videos/coneAnim.mp4" type="video/mp4"></video></div>
+              <h2 class="subtitle has-text-centered">Supports accelerating CPU/GPU instancing for massive particles, including Glyph-based and VFX particle methodologies, leveraging shearing transformations within encoded Minkowski space.</h2>
+            </div>
+          </div></div>
+          <button type="button" class="mc-prev" aria-label="Previous"><svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375"/></svg></button>
+          <button type="button" class="mc-next" aria-label="Next"><svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8"/></svg></button>
+          <div class="mc-dots"></div>
         </div>
       </div>
     </div>
@@ -459,21 +399,18 @@
         <h2 class="title is-3 has-text-centered">Another Carousel</h2>
         <div class="columns is-centered">
           <div class="column is-four-fifths">
-            <div id="results-carousel" class="carousel results-carousel">
-              <div class="item item-video2">
-                <video poster="" id="video2" autoplay controls muted loop
-                  style="display: block; margin: 0 auto; max-height: 500px; width: auto;">
-                  <!-- Your video file here -->
-                  <source src="static/videos/carousel2.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="item item-video3">
-                <video poster="" id="video3" autoplay controls muted loop
-                  style="display: block; margin: 0 auto; max-height: 500px; width: auto;">
-                  <!-- Your video file here -->
-                  <source src="static/videos/carousel3.mp4" type="video/mp4">
-                </video>
-              </div>
+            <div id="another-carousel" class="manual-carousel">
+              <div class="mc-viewport"><div class="mc-track">
+                <div class="mc-slide">
+                  <div class="has-text-centered"><video poster="" autoplay controls muted><source src="static/videos/carousel2.mp4" type="video/mp4"></video></div>
+                </div>
+                <div class="mc-slide">
+                  <div class="has-text-centered"><video poster="" autoplay controls muted><source src="static/videos/carousel3.mp4" type="video/mp4"></video></div>
+                </div>
+              </div></div>
+              <button type="button" class="mc-prev" aria-label="Previous"><svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375"/></svg></button>
+              <button type="button" class="mc-next" aria-label="Next"><svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8"/></svg></button>
+              <div class="mc-dots"></div>
             </div>
           </div>
         </div>
@@ -488,31 +425,23 @@
   <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="container">
-        <!-- Paper video. -->
         <h2 class="title is-3 has-text-centered">Interactive XR Platform</h2>
         <div class="columns is-centered">
           <div class="column is-four-fifths">
-            <div id="results-carousel" class="carousel results-carousel">
-              <div class="item item-video4">
-                <div class="publication-video" style="margin: 0 auto;">
-                  <!-- Youtube embed code here -->
-                  <iframe src="https://www.youtube.com/embed/4hKeNXNyjKA" frameborder="0" allow="autoplay; encrypted-media"
-                    allowfullscreen></iframe>
+            <div id="xr-carousel" class="manual-carousel">
+              <div class="mc-viewport"><div class="mc-track">
+                <div class="mc-slide">
+                  <div class="publication-video" style="margin: 0 auto;"><iframe src="https://www.youtube.com/embed/4hKeNXNyjKA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                  <h2 class="subtitle has-text-centered">360° view video with interactive presentation.</h2>
                 </div>
-                <h2 class="subtitle has-text-centered">
-                  360° view video with interactive presentation.
-                </h2>
-              </div>
-              <div class="item item-video5">
-                <div class="publication-video" style="max-width: 800px; margin: 0 auto;">
-                  <!-- Youtube embed code here -->
-                  <iframe src="https://www.youtube.com/embed/UMosUhgXG-o" frameborder="0" allow="autoplay; encrypted-media"
-                    allowfullscreen></iframe>
+                <div class="mc-slide">
+                  <div class="publication-video" style="max-width: 800px; margin: 0 auto;"><iframe src="https://www.youtube.com/embed/UMosUhgXG-o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+                  <h2 class="subtitle has-text-centered">Comparison with other softwares.</h2>
                 </div>
-                <h2 class="subtitle has-text-centered">
-                  Comparison with other softwares.
-                </h2>
-              </div>
+              </div></div>
+              <button type="button" class="mc-prev" aria-label="Previous"><svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375"/></svg></button>
+              <button type="button" class="mc-next" aria-label="Next"><svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8"/></svg></button>
+              <div class="mc-dots"></div>
             </div>
           </div>
         </div>
@@ -521,32 +450,30 @@
   </section>
   <!-- End youtube video -->
 
-  <!-- Image carousel -->
+  <!-- Other Rendering Features carousel -->
   <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3 has-text-centered">Other Rendering Features</h2>
-        <div id="results-carousel" class="carousel results-carousel" style="width: 90%; flex: none; margin: 0 auto">
-          <div class="item item-video1">
-            <video poster="" id="video1" autoplay controls muted loop
-              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
-              <source src="static/videos/AO.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">Supports Specular, Ambient Occlusion (LineAO) and Bloom effects.</h2>
-          </div>
-          <div class="item item-video1">
-            <video poster="" id="video1" autoplay controls muted loop
-              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
-              <source src="static/videos/trans.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">Supports mapping of different attributes (such as vorticity and
-              Q-criterion) to transparency to highlight vortex features.</h2>
-          </div>
+        <div id="rendering-carousel" class="manual-carousel" style="width: 90%; margin: 0 auto;">
+          <div class="mc-viewport"><div class="mc-track">
+            <div class="mc-slide">
+              <div class="has-text-centered"><video poster="" autoplay controls muted><source src="static/videos/AO.mp4" type="video/mp4"></video></div>
+              <h2 class="subtitle has-text-centered">Supports Specular, Ambient Occlusion (LineAO) and Bloom effects.</h2>
+            </div>
+            <div class="mc-slide">
+              <div class="has-text-centered"><video poster="" autoplay controls muted><source src="static/videos/trans.mp4" type="video/mp4"></video></div>
+              <h2 class="subtitle has-text-centered">Supports mapping of different attributes (such as vorticity and Q-criterion) to transparency to highlight vortex features.</h2>
+            </div>
+          </div></div>
+          <button type="button" class="mc-prev" aria-label="Previous"><svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375"/></svg></button>
+          <button type="button" class="mc-next" aria-label="Next"><svg viewBox="0 0 50 80"><polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8"/></svg></button>
+          <div class="mc-dots"></div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End image carousel -->
+  <!-- End Other Rendering Features carousel -->
 
   <!-- Paper poster -->
   <section class="hero is-small is-light temp-hidden">
