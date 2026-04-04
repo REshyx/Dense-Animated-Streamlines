@@ -110,6 +110,8 @@
                   </a>
                 </span>
 
+                <span class="publication-links-row-break" aria-hidden="true"></span>
+
                 <span class="link-block">
                   <a href="vespa-plugin.html" class="external-link button is-normal is-rounded is-dark"
                     title="VESPA ParaView plugin (ParaView 6.0.x) — user guide and download">
@@ -318,11 +320,10 @@
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3 has-text-centered">Dense fine streamlets animation</h2>
-        <div id="results-carousel" class="carousel results-carousel">
+        <div id="results-carousel" class="carousel results-carousel carousel-parallelism">
           <div class="item">
             <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+            <div class="has-text-centered">
               <img src="static/images/tupe1.jpg" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
             </div>
             <h2 class="subtitle has-text-centered">
@@ -333,8 +334,7 @@
           </div>
           <div class="item">
             <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: flex-start; justify-content: center; min-height: 400px; padding-top: 50px; padding-left: 80px;">
+            <div class="has-text-centered">
               <img src="static/images/image.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
             </div>
             <h2 class="subtitle has-text-centered">
@@ -344,8 +344,7 @@
           </div>
           <div class="item">
             <!-- Your image here -->
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+            <div class="has-text-centered">
               <img src="static/images/tube2.png" alt="MY ALT TEXT" style="max-height: 600px; width: auto;" />
             </div>
             <h2 class="subtitle has-text-centered">
@@ -355,8 +354,7 @@
             </h2>
           </div>
           <div class="item item-video1">
-            <div class="has-text-centered"
-              style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+            <div class="has-text-centered">
               <video poster="" id="video1" autoplay controls muted loop style="max-height: 600px; width: auto;">
                 <source src="static/videos/tube1.mp4" type="video/mp4">
               </video>
@@ -419,11 +417,11 @@
     </div>
   </section>
 
-  <!-- Liver & Red Sea video carousel -->
+  <!-- Eulerian animation carousel (liver, Red Sea, cone instancing) -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
-        <h2 class="title is-3 has-text-centered">Liver and Red Sea flow visualization</h2>
+        <h2 class="title is-3 has-text-centered">Eulerian animation</h2>
         <div id="liver-redsea-carousel" class="carousel results-carousel" style="width: 90%; flex: none; margin: 0 auto;">
           <div class="item">
             <video poster="" id="video-liver-glyph" autoplay controls muted loop playsinline preload="metadata"
@@ -439,11 +437,20 @@
             </video>
             <h2 class="subtitle has-text-centered">Large-scale Red Sea ocean current field.</h2>
           </div>
+          <div class="item">
+            <video poster="" id="video-euler-cone" autoplay controls muted loop playsinline preload="metadata"
+              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
+              <source src="static/videos/coneAnim.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">Supports accelerating CPU/GPU instancing for massive particles,
+              including Glyph-based and VFX particle methodologies, leveraging shearing transformations within encoded
+              Minkowski space.</h2>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End liver & Red Sea carousel -->
+  <!-- End Eulerian animation carousel -->
 
   <!-- Video carousel -->
   <section class="hero is-small temp-hidden">
@@ -535,15 +542,6 @@
             <h2 class="subtitle has-text-centered">Supports mapping of different attributes (such as vorticity and
               Q-criterion) to transparency to highlight vortex features.</h2>
           </div>
-          <div class="item item-video1">
-            <video poster="" id="video1" autoplay controls muted loop
-              style="display: block; margin: 0 auto; max-height: 600px; width: auto;">
-              <source src="static/videos/tube4.mp4" type="video/mp4">
-            </video>
-            <h2 class="subtitle has-text-centered">Supports accelerating CPU/GPU instancing for massive particles,
-              including Glyph-based and VFX particle methodologies, leveraging shearing transformations within encoded
-              Minkowski space.</h2>
-          </div>
         </div>
       </div>
     </div>
@@ -568,13 +566,13 @@
 
 
   <!--插入一个文件  -->
-  <section class="hero is-small is-light">
+  <section class="hero is-small is-light section-applications">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3 has-text-centered">Applications</h2>
-        <div class="columns is-centered" style="align-items: center;">
-          <div class="column is-half is-centered" style="display: flex; align-items: center; justify-content: center;">
-            <div class="download-card" style="align-items: center; margin: 0px;">
+        <div class="columns is-centered section-applications-row">
+          <div class="column is-centered section-applications-card-col">
+            <div class="download-card download-card--app-fixed">
               <img src="static/images/icon.png" alt="Icon" class="app-icon">
               <div class="app-info">
                 <h2 class="app-name">A Simple APP Available for Quest!</h2>
@@ -604,10 +602,9 @@
           </div>
           <!-- 分割竖线 -->
           <!-- <div style="width: 1px; height: 300px; background: linear-gradient(to bottom, transparent, #dee2e6 20%, #dee2e6 80%, transparent); margin: 0 20px; flex-shrink: 0; align-self: center;"></div> -->
-          <div class="column is-centered">
-            <div class="is-centered">
-              <video poster="" autoplay controls muted loop
-                style="display: block; margin: 0 auto;width: auto; border-radius: 12px;">
+          <div class="column is-centered section-applications-video-col">
+            <div class="is-centered section-applications-video-wrap">
+              <video class="applications-demo-video" poster="" autoplay controls muted loop>
                 <source src="static/videos/SoftWare.mp4" type="video/mp4">
               </video>
             </div>

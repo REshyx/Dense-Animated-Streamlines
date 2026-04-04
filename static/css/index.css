@@ -13,6 +13,23 @@ body {
     margin-bottom: 5px;
 }
 
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.25rem;
+  row-gap: 0.65rem;
+}
+
+/* Full-width flex line break: row 1 ends before VESPA / Quest buttons */
+.publication-links-row-break {
+  flex-basis: 100%;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
 .dnerf {
   font-variant: small-caps;
 }
@@ -317,9 +334,66 @@ body {
   border-left: 4px solid #17a2b8;
 }
 
-/* f6/f7: tight vertical rhythm, wide row, minimal gutter */
+/* Applications: fixed-size app card (535×255), matching video height, fixed gap between */
+.section-applications-row {
+  --applications-between-gap: 32px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--applications-between-gap);
+}
+
+.section-applications-row > .column {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  width: auto;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.section-applications-card-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-card.download-card--app-fixed {
+  width: 535px;
+  height: 255px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  overflow: auto;
+}
+
+.section-applications-video-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-applications-video-wrap {
+  line-height: 0;
+}
+
+.applications-demo-video {
+  display: block;
+  margin: 0 auto;
+  height: 255px;
+  width: auto;
+  max-width: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+/* f6/f7: extra space below section title before figures */
 .accuracy-rk-block > .title.is-3 {
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 1rem !important;
 }
 
 /* Inside Bulma .container: full width of container, no breakout */
@@ -367,6 +441,7 @@ body {
 
 .accuracy-rk-block {
   margin-bottom: 1rem;
+  padding-bottom: 1.75rem;
 }
 
 @media screen and (max-width: 768px) {
