@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VESPA Plugin (Minimal Set) user guide for ParaView: filters, representations, and plugin download.">
+  <title>VESPA Plugin (Minimal Set) — User Guide</title>
+  <link rel="icon" type="image/x-icon" href="static/images/icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    .vespa-doc .content h2 { margin-top: 2rem; padding-top: 0.5rem; border-top: 1px solid #eee; }
+    .vespa-doc .content h2:first-of-type { border-top: none; margin-top: 0; }
+    .vespa-doc nav.toc { background: #fafafa; border-radius: 8px; padding: 1rem 1.25rem; }
+    .vespa-doc nav.toc ol { margin: 0.5rem 0 0 1rem; }
+  </style>
+</head>
+
+<body class="vespa-doc">
+  <section class="hero is-light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <p class="mb-3">
+              <a href="index.html" class="has-text-link"><span class="icon"><i class="fas fa-arrow-left"></i></span> Back to project page</a>
+            </p>
+            <h1 class="title is-2 publication-title">VESPA Plugin (Minimal Set) — User Guide</h1>
+            <p class="subtitle is-5">
+              Four ParaView filters and two representations. Load <strong>VESPAPlugin</strong> under <strong>Tools → Manage Plugins</strong> if it is not loaded automatically.
+            </p>
+            <div class="buttons is-flex-wrap">
+              <a href="static/app/VESPAPlugin.dll" download="VESPAPlugin.dll" class="button is-dark is-rounded">
+                <span class="icon"><i class="fas fa-download"></i></span>
+                <span>Download VESPAPlugin.dll</span>
+              </a>
+              <span class="is-size-7 is-align-self-center has-text-grey ml-2">Windows ParaView plugin (place per your ParaView version’s plugin path).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop content">
+      <nav class="toc mb-5" aria-label="Table of contents">
+        <p class="title is-5 mb-2">On this page</p>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#array-probability-point-cull">1. Array Probability Point Cull</a></li>
+          <li><a href="#bidirectional-streamline-merge">2. Bidirectional Streamline Merge</a></li>
+          <li><a href="#vortex-criteria">3. Vortex Criteria</a></li>
+          <li><a href="#array-curve-mapper">4. Array Curve Mapper</a></li>
+          <li><a href="#pulse-glyphs">5. Pulse Glyphs</a></li>
+          <li><a href="#animated-streamline">6. Animated Streamline</a></li>
+          <li><a href="#quick-reference">Quick reference</a></li>
+        </ul>
+      </nav>
+
+      <div id="overview" class="mb-5">
+        <ul>
+          <li><strong>Filters</strong>: <strong>Filters → VESPA</strong></li>
+          <li><strong>Representations</strong>: Select your dataset in the Pipeline Browser, then choose <strong>Pulse Glyphs</strong> or <strong>Animated Streamline</strong> from the <strong>Representation</strong> dropdown in the Properties panel (exact labels may match your ParaView locale).</li>
+        </ul>
+      </div>
+
+      <h2 id="array-probability-point-cull">1. Array Probability Point Cull</h2>
+      <p><strong>What it does</strong><br>
+        Randomly subsamples points using a point-data scalar as a <strong>keep probability</strong> per point. Values are <strong>clamped to [0, 1]</strong> and used as literal probabilities; there is <strong>no</strong> rescaling by the global min/max of the array (e.g. if values lie in [0.1, 0.5], keep rates are roughly 10%–50%).</p>
+      <p><strong>When to use it</strong><br>
+        Any dataset with points and point data. Output is a <strong>point cloud</strong> (vertices only, no line connectivity); point attributes are copied for surviving points.</p>
+      <p><strong>How to use</strong></p>
+      <ol>
+        <li>Select the dataset, then <strong>Filters → VESPA → Array Probability Point Cull</strong>.</li>
+        <li><strong>Weight Array</strong>: Pick a <strong>point-data scalar</strong>. Leave empty or choose <strong>(Uniform)</strong> to <strong>keep all points</strong> (no random culling).</li>
+        <li><strong>Random Seed</strong>: Same seed reproduces the same subsample; change the seed for a different random subset.</li>
+      </ol>
+
+      <h2 id="bidirectional-streamline-merge">2. Bidirectional Streamline Merge</h2>
+      <p><strong>What it does</strong><br>
+        Merges <strong>bidirectional</strong> streamlines (e.g. from Stream Tracer: one segment forward, one backward for the same seed) into a <strong>single polyline</strong>: the second segment is reversed and appended; the shared seed vertex is merged when point ids match or endpoints coincide. Seeds with only one segment are passed through unchanged.</p>
+      <p><strong>When to use it</strong><br>
+        Input must be <strong>polyline geometry</strong> (line cells). You need a <strong>SeedIds</strong> array (or your own name) to group segments that belong to the same seed.</p>
+      <p><strong>How to use</strong></p>
+      <ol>
+        <li>Prepare polyline <strong>PolyData</strong> with a seed id array (often named <code>SeedIds</code>).</li>
+        <li><strong>Filters → VESPA → Bidirectional Streamline Merge</strong>.</li>
+        <li><strong>SeedIds Array</strong>: Name of the grouping array; default <code>SeedIds</code>.</li>
+        <li><strong>SeedIds on cells</strong>: If on, read SeedIds from <strong>each line cell</strong>; if off, use <strong>point data at the first point</strong> of each polyline.</li>
+        <li><strong>Generate point ids</strong>: Turn on to assign consecutive indices to output points; <strong>Point ids array name</strong> sets the new array name (default <code>PointIds</code>).</li>
+        <li><strong>Along-line integral</strong>: Cumulative sum along merged vertex order using \(\frac{1}{2}(f_i+f_{i+1})\) per step, <strong>not</strong> multiplied by geometric edge length; for vector arrays, <strong>magnitude</strong> is used. Set <strong>Integral integrand</strong> (point array) and <strong>Integral output name</strong> (output scalar name).</li>
+        <li><strong>Along-line integrand delta</strong>: Backward difference on the same integrand array along the polyline; first vertex is invalid. Set <strong>Delta output name</strong>.</li>
+        <li><strong>Per-streamline random offset</strong>: Each merged line draws one uniform value in \([0, n]\) and adds it to every component of <strong>Random offset array</strong> (must already exist on input). Set <strong>Random range max (n)</strong> and <strong>Random offset seed</strong>.</li>
+      </ol>
+
+      <h2 id="vortex-criteria">3. Vortex Criteria</h2>
+      <p><strong>What it does</strong><br>
+        From a velocity field, computes vorticity, velocity gradient, strain/rotation tensors, and optional vortex identifiers (Q, Lambda2, swirling strength, Liutex, Omega, helicity, etc.). <strong>Toggle only the outputs you need</strong> to save time and memory.</p>
+      <p><strong>How to use</strong></p>
+      <ol>
+        <li>Select the dataset, <strong>Filters → VESPA → Vortex Criteria</strong>.</li>
+        <li><strong>Velocity Array</strong>: Choose the velocity vector array.</li>
+        <li>Enable the desired <strong>Output …</strong> flags (velocity, vorticity, gradient, Q, Lambda2, …). Defaults often include vorticity and Q; add others as required.</li>
+        <li><strong>Epsilon</strong>: Small constant used in the Omega method; the default is usually fine.</li>
+      </ol>
+
+      <h2 id="array-curve-mapper">4. Array Curve Mapper</h2>
+      <p><strong>What it does</strong><br>
+        Maps a point array (scalar or vector — vectors use <strong>magnitude</strong>) through an editable <strong>piecewise-linear curve</strong> into a <strong>new scalar</strong> point array. Input values are normalized from <strong>Input Range</strong> to the curve domain [0, 1]; curve output [0, 1] is mapped to <strong>Output Range</strong>.</p>
+      <p><strong>How to use</strong></p>
+      <ol>
+        <li><strong>Filters → VESPA → Array Curve Mapper</strong>.</li>
+        <li><strong>Input Array</strong>: Point array to map.</li>
+        <li><strong>Output Array Name</strong>: Name of the new scalar (e.g. default <code>MappedArray</code>).</li>
+        <li><strong>Input Range Min / Max</strong>: Physical range treated as full-scale input; values outside are clamped before curve evaluation.</li>
+        <li><strong>Output Range Min / Max</strong>: Numeric range of the mapped result.</li>
+        <li>In the <strong>Curve Mapping</strong> section, edit <strong>Transfer Curve</strong> control points: horizontal axis is normalized input, vertical is normalized output, then scaled to <strong>Output Range</strong>. Adjust ranges first, then refine the curve shape.</li>
+      </ol>
+
+      <h2 id="pulse-glyphs">5. Pulse Glyphs</h2>
+      <p><strong>What it does</strong><br>
+        Extends normal <strong>3D Glyphs</strong> with a <strong>time-varying pulse</strong> on scale and optionally rotation — useful for integration time, pulsatile fields, etc. Glyph shape, orientation, and most standard Glyph options still apply.</p>
+      <p><strong>How to enable</strong></p>
+      <ol>
+        <li>Select data suitable for glyphs (e.g. oriented points or seeds).</li>
+        <li>Set <strong>Representation</strong> to <strong>Pulse Glyphs</strong>.</li>
+        <li>Use the <strong>Pulse Glyphs</strong> property group (alongside regular <strong>Glyph 3D</strong> options).</li>
+      </ol>
+      <p><strong>Common parameters</strong></p>
+      <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+          <thead>
+            <tr><th>Parameter</th><th>Effect</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Animate</strong></td><td>Enables animation; off freezes the pulse at the current phase.</td></tr>
+            <tr><td><strong>Integration Scale</strong></td><td>Multiplies the animation coordinate; controls how fast phase advances along quantities like integration time.</td></tr>
+            <tr><td><strong>Time Scale</strong></td><td>Scales the time / frame term; controls overall flicker or pulse speed.</td></tr>
+            <tr><td><strong>Trunc</strong>, <strong>Pow</strong></td><td>Shape the pulse envelope (sharper/smoother, peakier/flatter); tune by eye.</td></tr>
+            <tr><td><strong>Overall scale</strong></td><td>Global multiplier on glyph size after the pulse logic.</td></tr>
+            <tr><td><strong>Animation coordinate</strong></td><td>Point array driving the pulse (scalar as-is, vector → length). Default is often <code>IntegrationTime</code>; if missing, distance from the origin may be used.</td></tr>
+            <tr><td><strong>Extra scale by array</strong></td><td>Point array whose magnitude adds to the scale term (with the next two options).</td></tr>
+            <tr><td><strong>Array affects scale</strong></td><td>When on, the extra array contributes to scaling.</td></tr>
+            <tr><td><strong>Array affect scale ratio</strong></td><td>Multiplier on that extra magnitude.</td></tr>
+            <tr><td><strong>Pulse affects scale</strong></td><td>When on, the time-varying envelope is included in scale; when off, envelope is zero unless array-based scaling still applies.</td></tr>
+            <tr><td><strong>Pulse affects rotation</strong></td><td>When on, the pulse also drives Euler rotations (with <strong>Rotation sweep XYZ</strong>).</td></tr>
+            <tr><td><strong>Shuffle</strong></td><td>When on, the render frame enters the phase — motion looks more “jittery”; when off, motion follows time/data more smoothly.</td></tr>
+            <tr><td><strong>Rotation sweep XYZ (deg)</strong></td><td>Maximum rotation angle per axis (degrees) mapped from the pulse.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Glyph Type</strong> and advanced options (glyph table, LOD, …) behave like the standard 3D Glyphs representation; defaults are usually enough.</p>
+
+      <h2 id="animated-streamline">6. Animated Streamline</h2>
+      <p><strong>What it does</strong><br>
+        For <strong>ribbon- or tube-like streamline surfaces</strong>, animates <strong>opacity (and related shading)</strong> over time so the surface appears to flow along the streamline. Suited to banded output from Stream Tracer and similar filters.</p>
+      <p><strong>How to enable</strong></p>
+      <ol>
+        <li>Select the streamline <strong>surface PolyData</strong>.</li>
+        <li>Set <strong>Representation</strong> to <strong>Animated Streamline</strong>.</li>
+        <li>Adjust parameters in the <strong>Animated Streamline</strong> group.</li>
+      </ol>
+      <p><strong>Parameters</strong></p>
+      <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+          <thead>
+            <tr><th>Parameter</th><th>Effect</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Animate</strong></td><td>Updates every frame when on; off holds the current look.</td></tr>
+            <tr><td><strong>Integration Scale</strong></td><td>Multiplies the first animation coordinate; controls phase speed along the streamline.</td></tr>
+            <tr><td><strong>Time Scale</strong></td><td>Multiplies the time term; overall animation speed.</td></tr>
+            <tr><td><strong>Opacity Scale</strong></td><td>Overall opacity strength in [0, 1]; higher looks more solid.</td></tr>
+            <tr><td><strong>Trunc</strong>, <strong>Pow</strong></td><td>Same role as in Pulse Glyphs — shape the pulse / flicker.</td></tr>
+            <tr><td><strong>Animation coordinate X</strong></td><td>Primary driver: scalar as-is; 3-component vectors → 3D norm; 2-component → planar norm. Default is often <strong>IntegrationTime</strong>; pick another point scalar if needed.</td></tr>
+            <tr><td><strong>Animation coordinate Y</strong></td><td>Optional. <strong>None</strong> or <strong>(Uniform)</strong> means divisor 1; another point array can act as a per-point divisor for richer variation along the line.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>If the effect is too fast or slow, adjust <strong>Integration Scale</strong> and <strong>Time Scale</strong> together. If almost nothing moves, raise <strong>Opacity Scale</strong> or verify that <strong>Animation coordinate X</strong> actually varies on your data.</p>
+
+      <h2 id="quick-reference">Quick reference</h2>
+      <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+          <thead>
+            <tr><th>Item</th><th>Where in ParaView</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Four filters</td><td><strong>Filters → VESPA</strong></td></tr>
+            <tr><td>Pulse Glyphs</td><td><strong>Representation → Pulse Glyphs</strong></td></tr>
+            <tr><td>Animated Streamline</td><td><strong>Representation → Animated Streamline</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>If any label differs slightly from this document, trust the ParaView Properties panel.</p>
+
+      <p class="mt-5">
+        <a href="static/app/VESPAPlugin.dll" download="VESPAPlugin.dll" class="button is-dark is-rounded">
+          <span class="icon"><i class="fas fa-download"></i></span>
+          <span>Download VESPAPlugin.dll</span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p><a href="index.html">Project home</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
