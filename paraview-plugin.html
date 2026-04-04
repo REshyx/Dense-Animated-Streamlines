@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="VESPA Plugin (Minimal Set) for ParaView 6.0.x: Animated Streamline and Pulse Glyphs representations, supporting filters, Windows DLL download.">
-  <title>VESPA Plugin (Minimal Set) — User Guide</title>
+  <meta name="description" content="ParaView plugin (minimal set) for ParaView 6.0.x: Animated Streamline and Pulse Glyphs representations, supporting filters, Windows DLL download.">
+  <title>ParaView Plugin (Minimal Set) — User Guide</title>
   <link rel="icon" type="image/x-icon" href="static/images/icon.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -19,15 +19,15 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   <style>
-    .vespa-doc .content h2 { margin-top: 2rem; padding-top: 0.5rem; border-top: 1px solid #eee; }
-    .vespa-doc .content h2:first-of-type { border-top: none; margin-top: 0; }
-    .vespa-doc .content h3 { margin-top: 1.25rem; font-size: 1.25rem; }
-    .vespa-doc nav.toc { background: #fafafa; border-radius: 8px; padding: 1rem 1.25rem; }
-    .vespa-doc nav.toc ol { margin: 0.5rem 0 0 1rem; }
+    .paraview-plugin-doc .content h2 { margin-top: 2rem; padding-top: 0.5rem; border-top: 1px solid #eee; }
+    .paraview-plugin-doc .content h2:first-of-type { border-top: none; margin-top: 0; }
+    .paraview-plugin-doc .content h3 { margin-top: 1.25rem; font-size: 1.25rem; }
+    .paraview-plugin-doc nav.toc { background: #fafafa; border-radius: 8px; padding: 1rem 1.25rem; }
+    .paraview-plugin-doc nav.toc ol { margin: 0.5rem 0 0 1rem; }
   </style>
 </head>
 
-<body class="vespa-doc">
+<body class="paraview-plugin-doc">
   <section class="hero is-light">
     <div class="hero-body">
       <div class="container is-max-desktop">
@@ -36,9 +36,9 @@
             <p class="mb-3">
               <a href="index.html" class="has-text-link"><span class="icon"><i class="fas fa-arrow-left"></i></span> Back to project page</a>
             </p>
-            <h1 class="title is-2 publication-title">VESPA Plugin (Minimal Set) — User Guide</h1>
+            <h1 class="title is-2 publication-title">ParaView Plugin (Minimal Set) — User Guide</h1>
             <p class="subtitle is-5">
-              Two custom <strong>representations</strong> (main workflow) plus four <strong>filters</strong> under <strong>Filters → VESPA</strong> to prepare and enrich data for them. Load <strong>VESPAPlugin</strong> under <strong>Tools → Manage Plugins</strong> if it is not loaded automatically.
+              Two custom <strong>representations</strong> (main workflow) plus four <strong>filters</strong> under <strong>Filters → ParaView</strong> to prepare and enrich data for them. Load <strong>VESPAPlugin.dll</strong> under <strong>Tools → Manage Plugins</strong> if it is not loaded automatically.
             </p>
             <p class="notification is-warning is-light py-3 px-4 mb-4" style="max-width: 42rem; margin-left: auto; margin-right: auto;">
               <strong>ParaView version:</strong> this build targets <strong>ParaView 6.0.x</strong> only. Use a 6.0 release (e.g. 6.0.0–6.0.1); other major or minor versions are not supported and may fail to load or run correctly.
@@ -47,7 +47,7 @@
             <div class="buttons is-flex-wrap">
               <a href="static/app/VESPAPlugin.dll" download="VESPAPlugin.dll" class="button is-dark is-rounded">
                 <span class="icon"><i class="fas fa-download"></i></span>
-                <span>Download VESPAPlugin.dll <span class="is-size-7 has-text-weight-normal" style="opacity: 0.85;">(508&nbsp;KB)</span></span>
+                <span>Download ParaView plugin <span class="is-size-7 has-text-weight-normal" style="opacity: 0.85;">(VESPAPlugin.dll, 508&nbsp;KB)</span></span>
               </a>
               <span class="is-size-7 is-align-self-center has-text-grey ml-2">Windows DLL for <strong>ParaView 6.0.x</strong> (install under that version’s plugin path).</span>
             </div>
@@ -81,7 +81,7 @@
         <ul>
           <li><strong>Compatibility</strong>: <strong>ParaView 6.0.x</strong> required (this plugin is built against the 6.0 API; do not mix with 5.x, 6.1+, or unrelated builds).</li>
           <li><strong>Representations</strong> (primary): In the Pipeline Browser, select your dataset, then set <strong>Representation</strong> to <strong>Animated Streamline</strong> or <strong>Pulse Glyphs</strong> in the Properties panel. This guide lists <strong>Animated Streamline</strong> first, then <strong>Pulse Glyphs</strong> (labels may match your ParaView locale).</li>
-          <li><strong>Filters</strong> (supporting): <strong>Filters → VESPA</strong> — four filters to prepare polylines, seeds, derived fields, and mapped arrays that feed into those representations.</li>
+          <li><strong>Filters</strong> (supporting): <strong>Filters → ParaView</strong> — four filters to prepare polylines, seeds, derived fields, and mapped arrays that feed into those representations.</li>
         </ul>
       </div>
 
@@ -145,7 +145,7 @@
       <p><strong>Glyph Type</strong> and advanced options (glyph table, LOD, …) behave like the standard 3D Glyphs representation; defaults are usually enough.</p>
 
       <h2 id="supporting-filters">Supporting filters</h2>
-      <p>The four filters below live under <strong>Filters → VESPA</strong>. Use them to <strong>prepare or enrich</strong> geometry and point data for <strong>Animated Streamline</strong> and <strong>Pulse Glyphs</strong> — for example merged streamlines with consistent <code>IntegrationTime</code>, thinned seed clouds, vortex-derived scalars for mapping, or remapped arrays for animation coordinates.</p>
+      <p>The four filters below live under <strong>Filters → ParaView</strong>. Use them to <strong>prepare or enrich</strong> geometry and point data for <strong>Animated Streamline</strong> and <strong>Pulse Glyphs</strong> — for example merged streamlines with consistent <code>IntegrationTime</code>, thinned seed clouds, vortex-derived scalars for mapping, or remapped arrays for animation coordinates.</p>
 
       <h3 id="array-probability-point-cull">Array Probability Point Cull</h3>
       <p><strong>What it does</strong><br>
@@ -154,7 +154,7 @@
         Any dataset with points and point data. Output is a <strong>point cloud</strong> (vertices only, no line connectivity); point attributes are copied for surviving points.</p>
       <p><strong>How to use</strong></p>
       <ol>
-        <li>Select the dataset, then <strong>Filters → VESPA → Array Probability Point Cull</strong>.</li>
+        <li>Select the dataset, then <strong>Filters → ParaView → Array Probability Point Cull</strong>.</li>
         <li><strong>Weight Array</strong>: Pick a <strong>point-data scalar</strong>. Leave empty or choose <strong>(Uniform)</strong> to <strong>keep all points</strong> (no random culling).</li>
         <li><strong>Random Seed</strong>: Same seed reproduces the same subsample; change the seed for a different random subset.</li>
       </ol>
@@ -167,7 +167,7 @@
       <p><strong>How to use</strong></p>
       <ol>
         <li>Prepare polyline <strong>PolyData</strong> with a seed id array (often named <code>SeedIds</code>).</li>
-        <li><strong>Filters → VESPA → Bidirectional Streamline Merge</strong>.</li>
+        <li><strong>Filters → ParaView → Bidirectional Streamline Merge</strong>.</li>
         <li><strong>SeedIds Array</strong>: Name of the grouping array; default <code>SeedIds</code>.</li>
         <li><strong>SeedIds on cells</strong>: If on, read SeedIds from <strong>each line cell</strong>; if off, use <strong>point data at the first point</strong> of each polyline.</li>
         <li><strong>Generate point ids</strong>: Turn on to assign consecutive indices to output points; <strong>Point ids array name</strong> sets the new array name (default <code>PointIds</code>).</li>
@@ -181,7 +181,7 @@
         From a velocity field, computes vorticity, velocity gradient, strain/rotation tensors, and optional vortex identifiers (Q, Lambda2, swirling strength, Liutex, Omega, helicity, etc.). <strong>Toggle only the outputs you need</strong> to save time and memory.</p>
       <p><strong>How to use</strong></p>
       <ol>
-        <li>Select the dataset, <strong>Filters → VESPA → Vortex Criteria</strong>.</li>
+        <li>Select the dataset, <strong>Filters → ParaView → Vortex Criteria</strong>.</li>
         <li><strong>Velocity Array</strong>: Choose the velocity vector array.</li>
         <li>Enable the desired <strong>Output …</strong> flags (velocity, vorticity, gradient, Q, Lambda2, …). Defaults often include vorticity and Q; add others as required.</li>
         <li><strong>Epsilon</strong>: Small constant used in the Omega method; the default is usually fine.</li>
@@ -192,7 +192,7 @@
         Maps a point array (scalar or vector — vectors use <strong>magnitude</strong>) through an editable <strong>piecewise-linear curve</strong> into a <strong>new scalar</strong> point array. Input values are normalized from <strong>Input Range</strong> to the curve domain [0, 1]; curve output [0, 1] is mapped to <strong>Output Range</strong>.</p>
       <p><strong>How to use</strong></p>
       <ol>
-        <li><strong>Filters → VESPA → Array Curve Mapper</strong>.</li>
+        <li><strong>Filters → ParaView → Array Curve Mapper</strong>.</li>
         <li><strong>Input Array</strong>: Point array to map.</li>
         <li><strong>Output Array Name</strong>: Name of the new scalar (e.g. default <code>MappedArray</code>).</li>
         <li><strong>Input Range Min / Max</strong>: Physical range treated as full-scale input; values outside are clamped before curve evaluation.</li>
@@ -209,7 +209,7 @@
           <tbody>
             <tr><td>Animated Streamline</td><td><strong>Representation → Animated Streamline</strong></td></tr>
             <tr><td>Pulse Glyphs</td><td><strong>Representation → Pulse Glyphs</strong></td></tr>
-            <tr><td>Supporting filters (four)</td><td><strong>Filters → VESPA</strong></td></tr>
+            <tr><td>Supporting filters (four)</td><td><strong>Filters → ParaView</strong></td></tr>
           </tbody>
         </table>
       </div>
@@ -218,7 +218,7 @@
       <p class="mt-5">
         <a href="static/app/VESPAPlugin.dll" download="VESPAPlugin.dll" class="button is-dark is-rounded">
           <span class="icon"><i class="fas fa-download"></i></span>
-          <span>Download VESPAPlugin.dll <span class="is-size-7 has-text-weight-normal" style="opacity: 0.85;">(508&nbsp;KB)</span></span>
+          <span>Download ParaView plugin <span class="is-size-7 has-text-weight-normal" style="opacity: 0.85;">(VESPAPlugin.dll, 508&nbsp;KB)</span></span>
         </a>
       </p>
     </div>
