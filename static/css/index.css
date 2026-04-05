@@ -490,8 +490,17 @@ body {
 }
 
 .section-applications-webpage-caption {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   margin-bottom: 0 !important;
+}
+
+.section-applications-webpage-caption .link-block {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.section-applications-webpage-caption .link-block a.button {
+  white-space: nowrap;
 }
 
 /* f6/f7: extra space below section title before figures */
