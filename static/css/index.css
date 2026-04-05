@@ -443,6 +443,57 @@ body {
   object-fit: contain;
 }
 
+/* Grid layout: cancel Bulma .columns negative margins (meant for flex) to avoid edge slivers */
+.section-applications-webpage-row.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100%;
+}
+
+.section-applications-webpage-row > .section-applications-webpage-col {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .section-applications-webpage-row.columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-applications-webpage-video-wrap {
+  position: relative;
+  line-height: 0;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: transparent;
+}
+
+.applications-webpage-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transform-origin: center center;
+  border-radius: 0;
+}
+
+.section-applications-webpage-caption {
+  margin-top: 0.5rem;
+  margin-bottom: 0 !important;
+}
+
 /* f6/f7: extra space below section title before figures */
 .accuracy-rk-block > .title.is-3 {
   margin-bottom: 1rem !important;
